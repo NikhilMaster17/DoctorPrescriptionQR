@@ -1,18 +1,22 @@
-import qrcode
+from qr_generator import generate_qr_code
+from qr_reader import read_qr_code
 
-def generate_prescription_qr(prescription_text, file_name="prescription_qr.png"):
-    qr = qrcode.QRCode(
-        version=1,
-        box_size=10,
-        border=5
-    )
-    qr.add_data(prescription_text)
-    qr.make(fit=True)
+def main():
+    prescription_data = """
+    Patient: John Doe
+    Medicine: Paracetamol 500mg
+    Dosage: 1 tablet twice a day
+    Duration: 5 days
+    """
+    filename = "images/prescription_qr.png"
+    generate_qr_code(prescription_data, filename)
+    print(f"QR code saved as {filename}")
 
-    img = qr.make_image(fill='black', back_color='white')
-    img.save(file_name)
-    print(f"QR code saved as {file_name}")
+    decoded = read_qr_code(filename)
+    print("Decoded QR code data:")
+    print(decoded)
 
-# Example usage
-prescription = "Patient: John Doe\nMedicine: Paracetamol 500mg\nDosage: Twice a day for 5 days\nDoctor: Dr. Nikhil"
-generate_prescription_qr(prescription)
+if __name__ == "__main__":
+    main()
+
+
