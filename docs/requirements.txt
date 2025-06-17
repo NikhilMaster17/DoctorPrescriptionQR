@@ -1,1 +1,2 @@
-echo "qrcode\npillow" > docs/requirements.txt
+qrcode
+Pillow
