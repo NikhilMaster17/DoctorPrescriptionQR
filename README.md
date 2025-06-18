@@ -1,6 +1,5 @@
 # Doctor Prescription using QR-code
 
-**Duration:** Jan 2021 – Apr 2021  
 **Role:** Designer & Developer of QR code system  
 
 ## Project Overview
